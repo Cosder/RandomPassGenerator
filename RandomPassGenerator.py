@@ -6,18 +6,17 @@ print("***Password Generator***")
 
 #get password length
 temp_length = int(input("Enter password length: "))
-valid = False;
+valid = False
 
 
 #validate length
-while(valid != True):
-  if ((temp_length > 0) and (temp_length <15)):
+while valid != True:
+  if temp_length > 0 and temp_length <16:
     length = temp_length
     valid = True
   else:
-    print("Invalide input please type integer between 1 and 10")
+    print("Invalid input. Please type a number between 1 and 15")
     temp_length = int(input("Enter password length: "))
-  
 
 
 #user preference 
@@ -33,17 +32,16 @@ symbol = string.punctuation
 
 
 #Get symbols and numbers based on user preference
-if((want_number == 1) and (want_symbol == 1)):
+if want_number == 1 and want_symbol == 1:
   all = lower + upper + number + symbol
-if((want_number == 1) and (want_symbol != 1)):
+if want_number == 1 and want_symbol != 1:
   all = lower + upper + number
-if((want_number != 1) and (want_symbol != 1)):
+if want_number != 1 and want_symbol != 1:
   all = lower + upper + symbol
 else:
   all = lower + upper
 
-#get the randomized pass
+#get the randomized password
 temp = random.sample(all, length)
 password = ''.join(temp)
 print(password)
-
